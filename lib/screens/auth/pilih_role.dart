@@ -39,10 +39,12 @@ class PIlihRole extends StatelessWidget {
                     height: height * 0.15,
                   ),
                   RoleCard(
-                      width: width,
-                      height: height,
-                      image: 'images/dormitizen.png',
-                      title: 'Dormitizen'),
+                    width: width,
+                    height: height,
+                    image: 'images/dormitizen.png',
+                    title: 'Dormitizen',
+                    role: Role.dormitizen,
+                  ),
                   SizedBox(
                     height: height * 0.05,
                   ),
@@ -50,7 +52,8 @@ class PIlihRole extends StatelessWidget {
                       width: width,
                       height: height,
                       image: 'images/helpdesk.png',
-                      title: 'Helpdesk')
+                      title: 'Helpdesk',
+                      role: Role.admin)
                 ],
               ),
             ),

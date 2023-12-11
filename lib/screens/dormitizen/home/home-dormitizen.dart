@@ -5,13 +5,18 @@ import 'package:mydorm/components/table_calendar.dart';
 import 'package:mydorm/constants/constant.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  final void Function() onTapPaket;
+  final void Function() onTapProfil;
+  const Home({
+    super.key,
+    required this.onTapPaket,
+    required this.onTapProfil,
+  });
 
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
-
     return Scaffold(
       body: SizedBox(
         width: width,
@@ -133,7 +138,10 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
-            const BotNavDormitizen()
+            BotNavDormitizen(
+              onTapPaket: onTapPaket,
+              onTapProfil: onTapProfil,
+            )
           ],
         ),
       ),

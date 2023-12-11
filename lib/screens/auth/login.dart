@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:mydorm/screens/dormitizen/home/home-dormitizen.dart';
+import 'package:mydorm/screens/admin/home/home_page.dart';
+import 'package:mydorm/screens/dormitizen/home/home_page.dart';
 
 import '../../constants/constant.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+class Login extends StatefulWidget {
+  final Role role;
+  const Login({super.key, required this.role});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -23,7 +31,20 @@ class Login extends StatelessWidget {
                   Container(
                     width: double.infinity,
                     height: double.infinity,
+                    alignment: Alignment.topLeft,
+                    padding: const EdgeInsets.only(left: 30),
                     decoration: const BoxDecoration(gradient: kGradientMain),
+                    child: SafeArea(
+                        child: GestureDetector(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Icon(
+                        Icons.chevron_left,
+                        size: 35,
+                        color: kWhite,
+                      ),
+                    )),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -61,11 +82,19 @@ class Login extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const TextField(
-                        obscureText: true,
+                      TextField(
+                        obscureText: _isObscure,
                         decoration: InputDecoration(
-                            label: Text("Password"),
-                            suffixIcon: Icon(Icons.visibility)),
+                            label: const Text("Password"),
+                            suffixIcon: GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    _isObscure = !_isObscure;
+                                  });
+                                },
+                                child: Icon((_isObscure)
+                                    ? Icons.visibility
+                                    : Icons.visibility_off))),
                       ),
                       const SizedBox(
                         height: 70,
@@ -75,7 +104,10 @@ class Login extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const Home()));
+                                  builder: (context) =>
+                                      (widget.role == Role.dormitizen)
+                                          ? const HomePageDormitizen()
+                                          : const HomePageAdmin()));
                         },
                         child: Container(
                           alignment: Alignment.center,

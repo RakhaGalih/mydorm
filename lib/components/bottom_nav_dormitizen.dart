@@ -3,7 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mydorm/constants/constant.dart';
 
 class BotNavDormitizen extends StatefulWidget {
-  const BotNavDormitizen({super.key});
+  final void Function() onTapPaket;
+  final void Function() onTapProfil;
+  const BotNavDormitizen(
+      {super.key, required this.onTapPaket, required this.onTapProfil});
 
   @override
   State<BotNavDormitizen> createState() => _BotNavDormitizenState();
@@ -31,31 +34,39 @@ class _BotNavDormitizenState extends State<BotNavDormitizen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(FontAwesomeIcons.box),
-                        const SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          'Paket',
-                          style: kSemiBoldTextStyle.copyWith(fontSize: 12),
-                        )
-                      ],
+                    GestureDetector(
+                      onTap: widget.onTapPaket,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(FontAwesomeIcons.box),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            'Paket',
+                            style: kSemiBoldTextStyle.copyWith(fontSize: 12),
+                          )
+                        ],
+                      ),
                     ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(FontAwesomeIcons.solidCircleUser),
-                        const SizedBox(
-                          height: 3,
-                        ),
-                        Text(
-                          'Profil',
-                          style: kSemiBoldTextStyle.copyWith(fontSize: 12),
-                        )
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        widget.onTapProfil;
+                      },
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(FontAwesomeIcons.solidCircleUser),
+                          const SizedBox(
+                            height: 3,
+                          ),
+                          Text(
+                            'Profil',
+                            style: kSemiBoldTextStyle.copyWith(fontSize: 12),
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),

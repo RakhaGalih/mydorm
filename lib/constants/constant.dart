@@ -38,10 +38,16 @@ const kSemiBoldTextStyle = TextStyle(fontWeight: FontWeight.w600, fontSize: 22);
 const kBoldTextStyle = TextStyle(fontWeight: FontWeight.w700);
 
 const kWhite = Color(0xFFFEFEFF);
+const kGray = Color(0xFFD9D9D9);
+const kGrey = Color(0xFFAEA7A7);
 const kRed = Color(0xFF994F56);
+const kMain = Color(0xFFCC3545);
+const kBlueGrey = Color(0xFF696F8E);
 const kReddish = Color(0xFFEDD8D8);
 
 BoxShadow basicDropShadow = BoxShadow(
     color: Colors.black.withOpacity(0.25),
     offset: const Offset(0, 4),
     blurRadius: 4);
+
+enum Role { dormitizen, admin }

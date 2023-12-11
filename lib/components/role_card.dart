@@ -9,19 +9,25 @@ class RoleCard extends StatelessWidget {
   final double height;
   final String image;
   final String title;
+  final Role role;
   const RoleCard(
       {super.key,
       required this.width,
       required this.height,
       required this.image,
-      required this.title});
+      required this.title,
+      required this.role});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Login()));
+            context,
+            MaterialPageRoute(
+                builder: (context) => Login(
+                      role: role,
+                    )));
       },
       child: BlurryContainer(
         blur: 5,
