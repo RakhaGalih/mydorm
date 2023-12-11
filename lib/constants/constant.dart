@@ -31,6 +31,14 @@ const kGradientOrange = LinearGradient(
       Color(0xFFF5911F),
       Color(0xFFFF5E0C),
     ]);
+const kGradientRed = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFFF9597),
+      Color(0xFFEA494C),
+      Color(0xFF831D5A),
+    ]);
 
 const kRegularTextStyle = TextStyle(fontWeight: FontWeight.w400);
 const kMediumTextStyle = TextStyle(fontWeight: FontWeight.w500);

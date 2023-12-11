@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:mydorm/components/apps_icon.dart';
 import 'package:mydorm/components/bottom_nav.dart';
 import 'package:mydorm/constants/constant.dart';
+import 'package:mydorm/screens/admin/history/pengumuman_page.dart';
 import 'package:mydorm/screens/admin/history/riwayat_paket.dart';
 
 class HomeAdmin extends StatelessWidget {
@@ -208,10 +209,19 @@ class HomeAdmin extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const AppsIcon(
-                            icon: FontAwesomeIcons.box,
-                            title: 'Paket',
-                            pushWidget: HistoryPaket(),
+                          const Wrap(
+                            children: [
+                              AppsIcon(
+                                icon: FontAwesomeIcons.box,
+                                title: 'Paket',
+                                pushWidget: HistoryPaket(),
+                              ),
+                              AppsIcon(
+                                icon: FontAwesomeIcons.newspaper,
+                                title: 'Informasi',
+                                pushWidget: PengumumanPage(),
+                              )
+                            ],
                           )
                         ],
                       ),

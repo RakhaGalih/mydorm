@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:mydorm/components/pengumuman_card.dart';
 import 'package:mydorm/constants/constant.dart';
 import 'package:mydorm/templates/pengumuman.dart';
 
@@ -53,37 +54,13 @@ class _MyCarouselState extends State<MyCarousel> {
               },
               itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Container(
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(10),
+                    child: PengumuanCard(
                         gradient:
                             pengumumans[index % pengumumans.length].gradient,
-                        borderRadius: BorderRadius.circular(10),
-                        image: const DecorationImage(
-                            image: AssetImage('images/fluid.png'),
-                            fit: BoxFit.fill),
-                        boxShadow: [basicDropShadow]),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Text(
-                          pengumumans[index % pengumumans.length].title,
-                          style: kBoldTextStyle.copyWith(
-                              color: kWhite, fontSize: 20),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          pengumumans[index % pengumumans.length].tanggal,
-                          style: kMediumTextStyle.copyWith(
-                              fontSize: 14, color: kWhite),
-                        )
-                      ],
-                    ),
-                  ),
-                );
+                        title: pengumumans[index % pengumumans.length].title,
+                        tanggal:
+                            pengumumans[index % pengumumans.length].tanggal));
               }),
         ),
         const SizedBox(

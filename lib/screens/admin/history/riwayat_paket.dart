@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mydorm/components/my_app_bar.dart';
 import 'package:mydorm/components/paket_card.dart';
 import 'package:mydorm/components/search_box.dart';
 import 'package:mydorm/constants/constant.dart';
@@ -20,13 +21,7 @@ class HistoryPaket extends StatelessWidget {
           time: DateTime(2023, 11, 6, 20))
     ];
     return Scaffold(
-      appBar: AppBar(
-        foregroundColor: Colors.black,
-        titleTextStyle:
-            kSemiBoldTextStyle.copyWith(fontSize: 16, color: Colors.black),
-        backgroundColor: kWhite,
-        title: const Text('Riwayat Paket'),
-      ),
+      appBar: myAppBar('Riwayat Paket'),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: Column(
