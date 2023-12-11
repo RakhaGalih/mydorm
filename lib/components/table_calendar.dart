@@ -18,6 +18,11 @@ class _MyCalendarState extends State<MyCalendar> {
       margin: const EdgeInsets.symmetric(horizontal: 30),
       padding: const EdgeInsets.all(10),
       child: TableCalendar(
+        calendarFormat: CalendarFormat.month,
+        headerStyle: HeaderStyle(
+            titleCentered: true,
+            formatButtonVisible: false,
+            titleTextStyle: kSemiBoldTextStyle.copyWith(fontSize: 18)),
         firstDay: DateTime.utc(2010, 10, 16),
         lastDay: DateTime.utc(2030, 3, 14),
         focusedDay: DateTime.now(),
