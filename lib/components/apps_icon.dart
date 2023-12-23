@@ -15,28 +15,34 @@ class AppsIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => pushWidget));
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Icon(
-              icon,
-              size: 30,
-              color: kMain,
+    return Expanded(
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => pushWidget));
+        },
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20, right: 5, left: 5),
+          child: Container(
+            height: 60,
+            constraints: const BoxConstraints(minHeight: 60, minWidth: 80),
+            child: Column(
+              children: [
+                Icon(
+                  icon,
+                  size: 30,
+                  color: kMain,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  title,
+                  style: kSemiBoldTextStyle.copyWith(fontSize: 12),
+                )
+              ],
             ),
-            const SizedBox(
-              height: 5,
-            ),
-            Text(
-              title,
-              style: kSemiBoldTextStyle.copyWith(fontSize: 12),
-            )
-          ],
+          ),
         ),
       ),
     );

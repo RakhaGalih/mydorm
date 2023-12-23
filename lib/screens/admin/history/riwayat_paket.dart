@@ -3,6 +3,7 @@ import 'package:mydorm/components/my_app_bar.dart';
 import 'package:mydorm/components/paket_card.dart';
 import 'package:mydorm/components/search_box.dart';
 import 'package:mydorm/constants/constant.dart';
+import 'package:mydorm/screens/admin/add/add_paket/form.dart';
 import 'package:mydorm/templates/paket.dart';
 
 class HistoryPaket extends StatelessWidget {
@@ -22,6 +23,12 @@ class HistoryPaket extends StatelessWidget {
     ];
     return Scaffold(
       appBar: myAppBar('Riwayat Paket'),
+      floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AddPaket()));
+          }),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: Column(

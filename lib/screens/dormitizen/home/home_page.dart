@@ -40,8 +40,6 @@ class _HomePageDormitizenState extends State<HomePageDormitizen> {
         },
       ),
     ];
-    return Scaffold(
-      body: pages[_selectedIndex],
-    );
+    return pages[_selectedIndex];
   }
 }

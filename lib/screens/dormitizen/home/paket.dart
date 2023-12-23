@@ -163,7 +163,7 @@ class PaketDormitizen extends StatelessWidget {
                                       namaBarang: pakets[index].namaBarang,
                                       time: pakets[index].time,
                                       role: pakets[index].role,
-                                      edit: true,
+                                      edit: false,
                                       namaDormitizen: 'Iksan',
                                     )),
                           ),

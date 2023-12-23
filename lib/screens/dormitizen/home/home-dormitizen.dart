@@ -3,6 +3,8 @@ import 'package:mydorm/components/bottom_nav_dormitizen.dart';
 import 'package:mydorm/components/carousel.dart';
 import 'package:mydorm/components/table_calendar.dart';
 import 'package:mydorm/constants/constant.dart';
+import 'package:mydorm/screens/admin/app/pusat_bantuan/report.dart';
+import 'package:mydorm/screens/dormitizen/notification.dart';
 
 class Home extends StatelessWidget {
   final void Function() onTapPaket;
@@ -68,18 +70,36 @@ class Home extends StatelessWidget {
                                 ],
                               ),
                               const Spacer(),
-                              const Icon(
-                                Icons.warning,
-                                size: 25,
-                                color: kWhite,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Report()));
+                                },
+                                child: const Icon(
+                                  Icons.warning,
+                                  size: 25,
+                                  color: kWhite,
+                                ),
                               ),
                               const SizedBox(
                                 width: 10,
                               ),
-                              const Icon(
-                                Icons.notifications,
-                                size: 25,
-                                color: kWhite,
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const NotificationView()));
+                                },
+                                child: const Icon(
+                                  Icons.notifications,
+                                  size: 25,
+                                  color: kWhite,
+                                ),
                               )
                             ],
                           ),

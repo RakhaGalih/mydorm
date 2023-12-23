@@ -3,6 +3,7 @@ import 'package:mydorm/components/my_app_bar.dart';
 import 'package:mydorm/components/pengumuman_card.dart';
 import 'package:mydorm/components/search_box.dart';
 import 'package:mydorm/constants/constant.dart';
+import 'package:mydorm/screens/admin/add/add_info/form.dart';
 import 'package:mydorm/templates/pengumuman.dart';
 
 class PengumumanPage extends StatelessWidget {
@@ -43,33 +44,41 @@ class PengumumanPage extends StatelessWidget {
                                     tanggal: pengumumans[index].tanggal),
                               )),
                     ),
-                    Container(
-                      height: 200,
-                      decoration: BoxDecoration(
-                          gradient: kGradientRed,
-                          borderRadius: BorderRadius.circular(10),
-                          image: const DecorationImage(
-                              image: AssetImage('images/fluid.png'),
-                              fit: BoxFit.fill),
-                          boxShadow: [basicDropShadow]),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Tambahkan Informasi',
-                            style: kBoldTextStyle.copyWith(
-                                color: kWhite, fontSize: 20),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          const Icon(
-                            Icons.add_circle_outline,
-                            size: 40,
-                            color: kWhite,
-                          )
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AddInformation()));
+                      },
+                      child: Container(
+                        height: 200,
+                        decoration: BoxDecoration(
+                            gradient: kGradientRed,
+                            borderRadius: BorderRadius.circular(10),
+                            image: const DecorationImage(
+                                image: AssetImage('images/fluid.png'),
+                                fit: BoxFit.fill),
+                            boxShadow: [basicDropShadow]),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Tambahkan Informasi',
+                              style: kBoldTextStyle.copyWith(
+                                  color: kWhite, fontSize: 20),
+                            ),
+                            const SizedBox(
+                              height: 15,
+                            ),
+                            const Icon(
+                              Icons.add_circle_outline,
+                              size: 40,
+                              color: kWhite,
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(
